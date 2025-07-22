@@ -51,6 +51,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     )
   }
 )
+
+export const GradientButton = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
+>(({ className, variant, size, ...props }, ref) => {
+  return (
+    <button
+      className={cn(
+        "relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+        "bg-gradient-to-r from-[hsl(25_95%_53%)] to-[hsl(35_95%_60%)] text-white shadow-lg hover:shadow-[0_0_15px_rgba(255,130,0,0.5)] px-8 py-3 text-base font-semibold rounded-full",
+        className
+      )}
+      ref={ref}
+      {...props}
+    />
+  )
+})
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
